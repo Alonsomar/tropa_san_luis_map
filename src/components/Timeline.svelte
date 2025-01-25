@@ -50,12 +50,44 @@
 
   const TROPA_INICIO = 1952;
   
-  // Calcular altura relativa basada en el año, comenzando desde 1952
+  // Calcular todas las décadas desde 1950 hasta la actualidad
+  function getAllDecades() {
+    const startDecade = 1950; // Para incluir la fundación en 1952
+    const currentYear = new Date().getFullYear();
+    const endDecade = Math.floor(currentYear / 10) * 10;
+    
+    let decades = [];
+    for (let decade = startDecade; decade <= endDecade; decade += 10) {
+      decades.push(decade);
+    }
+    return decades;
+  }
+
+  $: allDecades = getAllDecades();
+
+  // Modificar el cálculo de posición para alinear todo correctamente
   function getRelativePosition(año) {
-    const startYear = TROPA_INICIO;
-    const endYear = new Date().getFullYear();
-    const totalYears = endYear - startYear;
-    return ((parseInt(año) - startYear) * 100); // 200px por año
+    const startYear = 1950;
+    return ((parseInt(año) - startYear) * 150); // Aumentamos el espaciado a 150px por año
+  }
+
+  function getTimelineHeight() {
+    const currentYear = new Date().getFullYear();
+    const years = currentYear - 1950;
+    return `${(years * 150) + 300}px`; // Ajustamos el padding
+  }
+
+  // Modificar la posición de los campamentos dentro de cada década
+  function getCampPosition(campYear, decadeYear) {
+    return getRelativePosition(campYear);
+  }
+
+  // Agrupar campamentos por década
+  function getCampsInDecade(decade) {
+    return sortedCamps.filter(camp => {
+      const campDecade = Math.floor(parseInt(camp.año) / 10) * 10;
+      return campDecade === decade;
+    });
   }
 
   // Agregar año de fundación
@@ -64,14 +96,6 @@
     lugar: "Fundación de la Tropa San Luis",
     tipo: "fundacion"
   };
-
-  // Ajustar el cálculo de altura para la línea de tiempo
-  function getTimelineHeight() {
-    if (!sortedCamps.length) return '200vh';
-    const lastYear = Math.max(...sortedCamps.map(c => parseInt(c.año)));
-    const years = lastYear - TROPA_INICIO;
-    return `${(years * 100) + 600}px`; // 200px por año y más padding
-  }
 </script>
 
 <div class="timeline-container" style="height: {height}; width: {width};">
@@ -84,7 +108,7 @@
     <!-- Evento de Fundación -->
     <div 
       class="timeline-step fundacion visible"
-      style="top: 10px"
+      style="top: {getRelativePosition(1952)}px"
     >
       <div class="timeline-point fundacion"></div>
       <div class="timeline-content fundacion">
@@ -95,36 +119,39 @@
     </div>
 
     <!-- Décadas -->
-    {#each Object.entries(decades) as [decade, camps]}
+    {#each allDecades as decade}
       <div 
-        class="decade-marker"
+        class="decade-marker" 
+        data-decade={decade} 
         style="top: {getRelativePosition(decade)}px"
       >
-        <span class="decade-label">{decade}s</span>
-        <div class="decade-line"></div>
-      </div>
-    {/each}
-
-    <!-- Campamentos -->
-    {#each sortedCamps as camp, index}
-      <div 
-        class="timeline-step"
-        class:active={selectedYear === camp.año}
-        class:visible={visibleYears.has(camp.año)}
-        class:right={index % 2 === 0}
-        style="top: {getRelativePosition(camp.año)}px"
-        data-year={camp.año}
-        on:click={() => selectCamp(camp)}
-        on:keydown={e => e.key === 'Enter' && selectCamp(camp)}
-        tabindex="0"
-        role="button"
-        aria-label="Campamento en {camp.lugar} del año {camp.año}"
-      >
-        <div class="timeline-point"></div>
-        <div class="timeline-content">
-          <div class="year-badge">{camp.año}</div>
-          <h4>{camp.lugar}</h4>
+        <div class="decade-header">
+          <span class="decade-year">{decade}s</span>
+          <div class="decade-line"></div>
         </div>
+        
+        <!-- Campamentos de esta década -->
+        {#each getCampsInDecade(decade) as camp, index}
+          <div 
+            class="timeline-step"
+            class:active={selectedYear === camp.año}
+            class:visible={visibleYears.has(camp.año)}
+            class:right={index % 2 === 0}
+            style="top: {getCampPosition(camp.año, decade)}px"
+            data-year={camp.año}
+            on:click={() => selectCamp(camp)}
+            on:keydown={e => e.key === 'Enter' && selectCamp(camp)}
+            tabindex="0"
+            role="button"
+            aria-label="Campamento en {camp.lugar} del año {camp.año}"
+          >
+            <div class="timeline-point"></div>
+            <div class="timeline-content">
+              <div class="year-badge">{camp.año}</div>
+              <h4>{camp.lugar}</h4>
+            </div>
+          </div>
+        {/each}
       </div>
     {/each}
   </div>
@@ -178,7 +205,7 @@
   .timeline-step {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-50%); /* Añadido translateY para centrar */
     width: 100%;
     height: 120px;
     cursor: pointer;
@@ -196,7 +223,7 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%);
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -274,34 +301,42 @@
 
   .decade-marker {
     position: absolute;
-    left: 0;
     width: 100%;
-    pointer-events: none;
     z-index: 1;
   }
 
-  .decade-label {
-    position: absolute;
-    left: -100px;
-    background: var(--gray-200);
-    padding: 0.4rem 1rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    color: var(--text-color);
-    font-weight: 600;
-    transform: translateY(-50%);
+  .decade-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .decade-year {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     box-shadow: var(--card-shadow);
-    
+    min-width: 120px;
+    text-align: center;
+    position: relative;
+    z-index: 3;
   }
 
   .decade-line {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 1px;
-    background: var(--gray-300);
-    opacity: 0.5;
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      var(--primary-color),
+      transparent
+    );
+    opacity: 0.3;
   }
 
   /* Hover effects */
@@ -330,9 +365,8 @@
       text-align: left !important;
     }
 
-    .decade-label {
-      left: 0;
-      font-size: 0.7rem;
+    .decade-year {
+      font-size: 1rem;
       padding: 0.2rem 0.5rem;
     }
   }
