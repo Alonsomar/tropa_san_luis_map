@@ -68,13 +68,13 @@
   // Modificar el cálculo de posición para alinear todo correctamente
   function getRelativePosition(año) {
     const startYear = 1950;
-    return ((parseInt(año) - startYear) * 150); // Aumentamos el espaciado a 150px por año
+    return ((parseInt(año) - startYear) * 120); // Aumentamos el espaciado a 150px por año
   }
 
   function getTimelineHeight() {
     const currentYear = new Date().getFullYear();
     const years = currentYear - 1950;
-    return `${(years * 150) + 300}px`; // Ajustamos el padding
+    return `${(years * 120) + 600}px`; // Ajustamos el padding
   }
 
   // Modificar la posición de los campamentos dentro de cada década
@@ -205,13 +205,15 @@
   .timeline-step {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%); /* Añadido translateY para centrar */
+    transform: translateX(-50%) translateY(-50%);
     width: 100%;
     height: 120px;
     cursor: pointer;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     filter: blur(10px);
+    display: flex;
+    align-items: center;
   }
 
   .timeline-step.visible {
@@ -244,15 +246,12 @@
 
   .timeline-content {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-    width: calc(50% - 4rem);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 2;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 60px);
+    transition: all 0.3s ease;
   }
 
   .timeline-content.fundacion {
@@ -261,24 +260,22 @@
   }
 
   .timeline-step.right .timeline-content {
-    left: calc(50% + 3rem);
+    left: calc(50% + 40px);
   }
 
   .timeline-step:not(.right) .timeline-content {
-    right: calc(50% + 3rem);
-    text-align: right;
+    right: calc(50% + 40px);
   }
 
   .year-badge {
     display: inline-block;
-    background: var(--primary-light);
+    padding: 0.25rem 0.5rem;
+    background: var(--primary-color);
     color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.9rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
     font-weight: 600;
-    margin-bottom: 0.75rem;
-    box-shadow: 0 2px 4px rgba(241, 50, 50, 0.2);
+    margin-bottom: 0.5rem;
   }
 
   .year-badge.fundacion {
@@ -288,9 +285,15 @@
 
   .timeline-content h4 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--text-primary);
+  }
+
+  .timeline-content p {
+    margin: 0.5rem 0 0;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
   }
 
   .fundacion-text {
