@@ -79,7 +79,7 @@
 
   // Modificar la posición de los campamentos dentro de cada década
   function getCampPosition(campYear, decadeYear) {
-    return getRelativePosition(campYear);
+    return (parseInt(campYear) - parseInt(decadeYear)) * 120; // Relative to decade
   }
 
   // Agrupar campamentos por década
@@ -125,6 +125,12 @@
         data-decade={decade} 
         style="top: {getRelativePosition(decade)}px"
       >
+      <div 
+        class="decade-background" 
+        style="top: {getCampPosition(decade + 5, decade)}px"
+      >
+        {decade}s
+      </div>
         <div class="decade-header">
           <span class="decade-year">{decade}s</span>
           <div class="decade-line"></div>
@@ -171,7 +177,7 @@
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 6rem 2rem;
+    padding: 6rem 0;
   }
 
   .timeline-background {
@@ -189,7 +195,7 @@
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 4px;
+    width: 6px;
     transform: translateX(-50%);
   }
 
@@ -197,9 +203,13 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: var(--timeline-gradient);
+    background: linear-gradient(
+      to bottom,
+      var(--primary-color) 0%,
+      var(--primary-dark) 100%
+    );
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(241, 50, 50, 0.2);
+    box-shadow: 0 0 15px rgba(241, 50, 50, 0.2);
   }
 
   .timeline-step {
@@ -207,13 +217,14 @@
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     width: 100%;
-    height: 120px;
+    height: 80px;
     cursor: pointer;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     filter: blur(10px);
     display: flex;
     align-items: center;
+    z-index: 1; 
   }
 
   .timeline-step.visible {
@@ -226,12 +237,12 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background: var(--primary-color);
-    border: 3px solid white;
-    box-shadow: 0 0 0 4px rgba(241, 50, 50, 0.2);
+    border: 4px solid white;
+    box-shadow: 0 0 0 6px rgba(241, 50, 50, 0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 2;
   }
@@ -302,6 +313,24 @@
     opacity: 0.9;
   }
 
+  /* En Timeline.svelte <style> */
+  .decade-background {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 40px); /* Ajusta según necesidad */
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(241, 50, 50, 0.03),
+      rgba(241, 50, 50, 0.03) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+    pointer-events: none; /* Permite interactuar con elementos debajo */
+    z-index: 0; /* Asegura que esté detrás del contenido */
+    opacity: 0.7;
+    font-size: 0; /* Oculta el texto {decade}s (solo para debug) */
+  }
+
   .decade-marker {
     position: absolute;
     width: 100%;
@@ -312,17 +341,17 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     position: relative;
     z-index: 2;
   }
 
   .decade-year {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: var(--primary-color);
-    background: white;
-    padding: 0.5rem 1rem;
+    color: white;
+    background: var(--primary-color);
+    padding: 0.3rem 0.8rem;
     border-radius: 8px;
     box-shadow: var(--card-shadow);
     min-width: 120px;
@@ -362,10 +391,14 @@
     }
 
     .timeline-content {
-      width: calc(100% - 100px);
-      left: 80px !important;
+      width: calc(100% - 80px) !important;
+      left: 60px !important;
       right: auto !important;
       text-align: left !important;
+    }
+
+    .year-badge {
+      font-size: 0.65rem;
     }
 
     .decade-year {
