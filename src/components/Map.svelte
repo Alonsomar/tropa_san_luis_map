@@ -31,7 +31,7 @@
 
     try {
       // Cargar datos geográficos de Chile (GeoJSON)
-      const response = await fetch('https://raw.githubusercontent.com/deldersveld/topojson/master/countries/chile/chile-regions.json');
+      const response = await fetch('data/Regional.geojson');
       const data = await response.json();
       
       // Dibujar el mapa

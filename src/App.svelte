@@ -118,6 +118,9 @@
     }
   }
 
+  header h1 {
+    font-family: var(--title-font);
+  }
   h1 {
     color: var(--primary-color);
     margin-bottom: 1.5rem;
