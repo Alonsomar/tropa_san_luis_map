@@ -1,785 +1,785 @@
 {
-    "campamentos": [
-      {
-        "id": 1,
-        "año": "1953",
-        "lugar": "San Fabián",
-        "coordenadas": {
-          "lat": -27.2869,
-          "lng": -66.18
-        },
-        "descripcion": "Campamento realizado en San Fabián durante el año 1953.",
-        "imagenes": []
-      },
-      {
-        "id": 2,
-        "año": "1954",
-        "lugar": "Cucha-Cucha",
-        "coordenadas": {
-          "lat": -52.1447,
-          "lng": -67.8848
-        },
-        "descripcion": "Campamento realizado en Cucha-Cucha durante el año 1954.",
-        "imagenes": []
-      },
-      {
-        "id": 3,
-        "año": "1955",
-        "lugar": "Villarica",
-        "coordenadas": {
-          "lat": -42.5073,
-          "lng": -67.4468
-        },
-        "descripcion": "Campamento realizado en Villarica durante el año 1955.",
-        "imagenes": []
-      },
-      {
-        "id": 4,
-        "año": "1956",
-        "lugar": "Ñuble",
-        "coordenadas": {
-          "lat": -32.9779,
-          "lng": -69.3175
-        },
-        "descripcion": "Campamento realizado en Ñuble durante el año 1956.",
-        "imagenes": []
-      },
-      {
-        "id": 5,
-        "año": "1957",
-        "lugar": "Puerto Montt",
-        "coordenadas": {
-          "lat": -52.1992,
-          "lng": -69.3398
-        },
-        "descripcion": "Campamento realizado en Puerto Montt durante el año 1957.",
-        "imagenes": []
-      },
-      {
-        "id": 6,
-        "año": "1958",
-        "lugar": "Loncoche",
-        "coordenadas": {
-          "lat": -31.9709,
-          "lng": -69.2264
-        },
-        "descripcion": "Campamento realizado en Loncoche durante el año 1958.",
-        "imagenes": []
-      },
-      {
-        "id": 7,
-        "año": "1959",
-        "lugar": "Lago Ranco",
-        "coordenadas": {
-          "lat": -28.5972,
-          "lng": -69.7608
-        },
-        "descripcion": "Campamento realizado en Lago Ranco durante el año 1959.",
-        "imagenes": []
-      },
-      {
-        "id": 8,
-        "año": "1960",
-        "lugar": "Puerto Fonck",
-        "coordenadas": {
-          "lat": -42.9288,
-          "lng": -68.7808
-        },
-        "descripcion": "Campamento realizado en Puerto Fonck durante el año 1960.",
-        "imagenes": []
-      },
-      {
-        "id": 9,
-        "año": "1961",
-        "lugar": "Ayacara",
-        "coordenadas": {
-          "lat": -19.0609,
-          "lng": -67.313
-        },
-        "descripcion": "Campamento realizado en Ayacara durante el año 1961.",
-        "imagenes": []
-      },
-      {
-        "id": 10,
-        "año": "1962",
-        "lugar": "Panguipulli",
-        "coordenadas": {
-          "lat": -37.8074,
-          "lng": -67.9954
-        },
-        "descripcion": "Campamento realizado en Panguipulli durante el año 1962.",
-        "imagenes": []
-      },
-      {
-        "id": 11,
-        "año": "1963",
-        "lugar": "Puyehue",
-        "coordenadas": {
-          "lat": -21.8508,
-          "lng": -67.0386
-        },
-        "descripcion": "Campamento realizado en Puyehue durante el año 1963.",
-        "imagenes": []
-      },
-      {
-        "id": 12,
-        "año": "1964",
-        "lugar": "Perquilauquén",
-        "coordenadas": {
-          "lat": -18.9519,
-          "lng": -67.757
-        },
-        "descripcion": "Campamento realizado en Perquilauquén durante el año 1964.",
-        "imagenes": []
-      },
-      {
-        "id": 13,
-        "año": "1965",
-        "lugar": "Ñuble",
-        "coordenadas": {
-          "lat": -45.8272,
-          "lng": -74.9681
-        },
-        "descripcion": "Campamento realizado en Ñuble durante el año 1965.",
-        "imagenes": []
-      },
-      {
-        "id": 14,
-        "año": "1966",
-        "lugar": "Villarica",
-        "coordenadas": {
-          "lat": -52.0082,
-          "lng": -68.2134
-        },
-        "descripcion": "Campamento realizado en Villarica durante el año 1966.",
-        "imagenes": []
-      },
-      {
-        "id": 15,
-        "año": "1967",
-        "lugar": "Lanalhue",
-        "coordenadas": {
-          "lat": -29.5506,
-          "lng": -69.8872
-        },
-        "descripcion": "Campamento realizado en Lanalhue durante el año 1967.",
-        "imagenes": []
-      },
-      {
-        "id": 16,
-        "año": "1968",
-        "lugar": "Calafquén",
-        "coordenadas": {
-          "lat": -28.577,
-          "lng": -70.8367
-        },
-        "descripcion": "Campamento realizado en Calafquén durante el año 1968.",
-        "imagenes": []
-      },
-      {
-        "id": 17,
-        "año": "1969",
-        "lugar": "Puerto Fonck",
-        "coordenadas": {
-          "lat": -52.7018,
-          "lng": -70.1763
-        },
-        "descripcion": "Campamento realizado en Puerto Fonck durante el año 1969.",
-        "imagenes": []
-      },
-      {
-        "id": 18,
-        "año": "1970",
-        "lugar": "Rupanco",
-        "coordenadas": {
-          "lat": -22.8153,
-          "lng": -70.9941
-        },
-        "descripcion": "Campamento realizado en Rupanco durante el año 1970.",
-        "imagenes": []
-      },
-      {
-        "id": 19,
-        "año": "1971",
-        "lugar": "Calafquén",
-        "coordenadas": {
-          "lat": -28.4999,
-          "lng": -70.8435
-        },
-        "descripcion": "Campamento realizado en Calafquén durante el año 1971.",
-        "imagenes": []
-      },
-      {
-        "id": 20,
-        "año": "1972",
-        "lugar": "Loncoche",
-        "coordenadas": {
-          "lat": -23.7429,
-          "lng": -69.5187
-        },
-        "descripcion": "Campamento realizado en Loncoche durante el año 1972.",
-        "imagenes": []
-      },
-      {
-        "id": 21,
-        "año": "1973",
-        "lugar": "Los Ángeles",
-        "coordenadas": {
-          "lat": -40.4408,
-          "lng": -73.1389
-        },
-        "descripcion": "Campamento realizado en Los Ángeles durante el año 1973.",
-        "imagenes": []
-      },
-      {
-        "id": 22,
-        "año": "1974",
-        "lugar": "Chillán",
-        "coordenadas": {
-          "lat": -50.9679,
-          "lng": -68.6402
-        },
-        "descripcion": "Campamento realizado en Chillán durante el año 1974.",
-        "imagenes": []
-      },
-      {
-        "id": 23,
-        "año": "1975",
-        "lugar": "Calafquén",
-        "coordenadas": {
-          "lat": -20.7611,
-          "lng": -68.5696
-        },
-        "descripcion": "Campamento realizado en Calafquén durante el año 1975.",
-        "imagenes": []
-      },
-      {
-        "id": 24,
-        "año": "1976",
-        "lugar": "Villarica",
-        "coordenadas": {
-          "lat": -49.6843,
-          "lng": -69.2659
-        },
-        "descripcion": "Campamento realizado en Villarica durante el año 1976.",
-        "imagenes": []
-      },
-      {
-        "id": 25,
-        "año": "1977",
-        "lugar": "Chillán",
-        "coordenadas": {
-          "lat": -30.8785,
-          "lng": -74.2644
-        },
-        "descripcion": "Campamento realizado en Chillán durante el año 1977.",
-        "imagenes": []
-      },
-      {
-        "id": 26,
-        "año": "1978",
-        "lugar": "Villarica",
-        "coordenadas": {
-          "lat": -23.4672,
-          "lng": -67.2406
-        },
-        "descripcion": "Campamento realizado en Villarica durante el año 1978.",
-        "imagenes": []
-      },
-      {
-        "id": 27,
-        "año": "1979",
-        "lugar": "Calafquén",
-        "coordenadas": {
-          "lat": -46.8145,
-          "lng": -72.137
-        },
-        "descripcion": "Campamento realizado en Calafquén durante el año 1979.",
-        "imagenes": []
-      },
-      {
-        "id": 28,
-        "año": "1980",
-        "lugar": "Calafquén",
-        "coordenadas": {
-          "lat": -54.7171,
-          "lng": -74.8008
-        },
-        "descripcion": "Campamento realizado en Calafquén durante el año 1980.",
-        "imagenes": []
-      },
-      {
-        "id": 29,
-        "año": "1981",
-        "lugar": "Villarica",
-        "coordenadas": {
-          "lat": -50.5308,
-          "lng": -69.6222
-        },
-        "descripcion": "Campamento realizado en Villarica durante el año 1981.",
-        "imagenes": []
-      },
-      {
-        "id": 30,
-        "año": "1982",
-        "lugar": "Puerto Fonck",
-        "coordenadas": {
-          "lat": -20.0029,
-          "lng": -74.0864
-        },
-        "descripcion": "Campamento realizado en Puerto Fonck durante el año 1982.",
-        "imagenes": []
-      },
-      {
-        "id": 31,
-        "año": "1983",
-        "lugar": "Puerto Fonck",
-        "coordenadas": {
-          "lat": -52.6254,
-          "lng": -67.5133
-        },
-        "descripcion": "Campamento realizado en Puerto Fonck durante el año 1983.",
-        "imagenes": []
-      },
-      {
-        "id": 32,
-        "año": "1984",
-        "lugar": "Río Muco Temuco",
-        "coordenadas": {
-          "lat": -47.7363,
-          "lng": -72.7573
-        },
-        "descripcion": "Campamento realizado en Río Muco Temuco durante el año 1984.",
-        "imagenes": []
-      },
-      {
-        "id": 33,
-        "año": "1985",
-        "lugar": "Panguipulli",
-        "coordenadas": {
-          "lat": -49.4742,
-          "lng": -66.3403
-        },
-        "descripcion": "Campamento realizado en Panguipulli durante el año 1985.",
-        "imagenes": []
-      },
-      {
-        "id": 34,
-        "año": "1985",
-        "lugar": "Salto de la Princesa",
-        "coordenadas": {
-          "lat": -34.0386,
-          "lng": -71.4772
-        },
-        "descripcion": "Campamento realizado en Salto de la Princesa durante el año 1985.",
-        "imagenes": []
-      },
-      {
-        "id": 35,
-        "año": "1986",
-        "lugar": "Ayacara Puerto Buill",
-        "coordenadas": {
-          "lat": -54.6402,
-          "lng": -73.8372
-        },
-        "descripcion": "Campamento realizado en Ayacara Puerto Buill durante el año 1986.",
-        "imagenes": []
-      },
-      {
-        "id": 36,
-        "año": "1987",
-        "lugar": "Calafquén",
-        "coordenadas": {
-          "lat": -50.1972,
-          "lng": -70.5402
-        },
-        "descripcion": "Campamento realizado en Calafquén durante el año 1987.",
-        "imagenes": []
-      },
-      {
-        "id": 37,
-        "año": "1988",
-        "lugar": "Ensenada",
-        "coordenadas": {
-          "lat": -44.2009,
-          "lng": -69.1028
-        },
-        "descripcion": "Campamento realizado en Ensenada durante el año 1988.",
-        "imagenes": []
-      },
-      {
-        "id": 38,
-        "año": "1989",
-        "lugar": "Cascadas",
-        "coordenadas": {
-          "lat": -33.1275,
-          "lng": -66.3532
-        },
-        "descripcion": "Campamento realizado en Cascadas durante el año 1989.",
-        "imagenes": []
-      },
-      {
-        "id": 39,
-        "año": "1990",
-        "lugar": "Lago 7 Islas Calbuco",
-        "coordenadas": {
-          "lat": -26.7113,
-          "lng": -71.2252
-        },
-        "descripcion": "Campamento realizado en Lago 7 Islas Calbuco durante el año 1990.",
-        "imagenes": []
-      },
-      {
-        "id": 40,
-        "año": "1991",
-        "lugar": "Lago Maihue",
-        "coordenadas": {
-          "lat": -31.079,
-          "lng": -68.6084
-        },
-        "descripcion": "Campamento realizado en Lago Maihue durante el año 1991.",
-        "imagenes": []
-      },
-      {
-        "id": 41,
-        "año": "1992",
-        "lugar": "Salto de la Princesa",
-        "coordenadas": {
-          "lat": -46.6272,
-          "lng": -70.0216
-        },
-        "descripcion": "Campamento realizado en Salto de la Princesa durante el año 1992.",
-        "imagenes": []
-      },
-      {
-        "id": 42,
-        "año": "1993",
-        "lugar": "Lechagua Chiloé",
-        "coordenadas": {
-          "lat": -27.5197,
-          "lng": -73.2202
-        },
-        "descripcion": "Campamento realizado en Lechagua Chiloé durante el año 1993.",
-        "imagenes": []
-      },
-      {
-        "id": 43,
-        "año": "1994",
-        "lugar": "Mantilhue Lago Puyehue",
-        "coordenadas": {
-          "lat": -39.5937,
-          "lng": -66.7872
-        },
-        "descripcion": "Campamento realizado en Mantilhue Lago Puyehue durante el año 1994.",
-        "imagenes": []
-      },
-      {
-        "id": 44,
-        "año": "1995",
-        "lugar": "Lago Rupanco",
-        "coordenadas": {
-          "lat": -41.5511,
-          "lng": -74.824
-        },
-        "descripcion": "Campamento realizado en Lago Rupanco durante el año 1995.",
-        "imagenes": []
-      },
-      {
-        "id": 45,
-        "año": "1997",
-        "lugar": "Mantilhue Lago Puyehue",
-        "coordenadas": {
-          "lat": -33.4289,
-          "lng": -71.9504
-        },
-        "descripcion": "Campamento realizado en Mantilhue Lago Puyehue durante el año 1997.",
-        "imagenes": []
-      },
-      {
-        "id": 46,
-        "año": "1998",
-        "lugar": "Anticura Parque Nacional Puyehue",
-        "coordenadas": {
-          "lat": -27.8574,
-          "lng": -74.809
-        },
-        "descripcion": "Campamento realizado en Anticura Parque Nacional Puyehue durante el año 1998.",
-        "imagenes": []
-      },
-      {
-        "id": 47,
-        "año": "1999",
-        "lugar": "San Francisco de Mostazal",
-        "coordenadas": {
-          "lat": -32.2989,
-          "lng": -74.1517
-        },
-        "descripcion": "Campamento realizado en San Francisco de Mostazal durante el año 1999.",
-        "imagenes": []
-      },
-      {
-        "id": 48,
-        "año": "1999",
-        "lugar": "Calfuco Niebla Valdivia",
-        "coordenadas": {
-          "lat": -53.0346,
-          "lng": -70.7819
-        },
-        "descripcion": "Campamento realizado en Calfuco Niebla Valdivia durante el año 1999.",
-        "imagenes": []
-      },
-      {
-        "id": 49,
-        "año": "2000",
-        "lugar": "Isla Huar",
-        "coordenadas": {
-          "lat": -38.5056,
-          "lng": -68.9487
-        },
-        "descripcion": "Campamento realizado en Isla Huar durante el año 2000.",
-        "imagenes": []
-      },
-      {
-        "id": 50,
-        "año": "2001",
-        "lugar": "Río Carihueico",
-        "coordenadas": {
-          "lat": -46.8086,
-          "lng": -74.2278
-        },
-        "descripcion": "Campamento realizado en Río Carihueico durante el año 2001.",
-        "imagenes": []
-      },
-      {
-        "id": 51,
-        "año": "2002",
-        "lugar": "Lago Riñihue",
-        "coordenadas": {
-          "lat": -48.4085,
-          "lng": -68.2343
-        },
-        "descripcion": "Campamento realizado en Lago Riñihue durante el año 2002.",
-        "imagenes": []
-      },
-      {
-        "id": 52,
-        "año": "2004",
-        "lugar": "Vilches",
-        "coordenadas": {
-          "lat": -49.7758,
-          "lng": -71.7841
-        },
-        "descripcion": "Campamento realizado en Vilches durante el año 2004.",
-        "imagenes": []
-      },
-      {
-        "id": 53,
-        "año": "2005",
-        "lugar": "Enco Panguipulli",
-        "coordenadas": {
-          "lat": -44.3567,
-          "lng": -67.8329
-        },
-        "descripcion": "Campamento realizado en Enco Panguipulli durante el año 2005.",
-        "imagenes": []
-      },
-      {
-        "id": 54,
-        "año": "2006",
-        "lugar": "Rupanco",
-        "coordenadas": {
-          "lat": -35.7489,
-          "lng": -70.7037
-        },
-        "descripcion": "Campamento realizado en Rupanco durante el año 2006.",
-        "imagenes": []
-      },
-      {
-        "id": 55,
-        "año": "2007",
-        "lugar": "Puelo",
-        "coordenadas": {
-          "lat": -31.4101,
-          "lng": -70.0152
-        },
-        "descripcion": "Campamento realizado en Puelo durante el año 2007.",
-        "imagenes": []
-      },
-      {
-        "id": 56,
-        "año": "2008",
-        "lugar": "Bullileo",
-        "coordenadas": {
-          "lat": -27.6098,
-          "lng": -72.4012
-        },
-        "descripcion": "Campamento realizado en Bullileo durante el año 2008.",
-        "imagenes": []
-      },
-      {
-        "id": 57,
-        "año": "2009",
-        "lugar": "Las Compuertas Chiloé",
-        "coordenadas": {
-          "lat": -44.6032,
-          "lng": -66.9088
-        },
-        "descripcion": "Campamento realizado en Las Compuertas Chiloé durante el año 2009.",
-        "imagenes": []
-      },
-      {
-        "id": 58,
-        "año": "2010",
-        "lugar": "Rupanco",
-        "coordenadas": {
-          "lat": -27.1558,
-          "lng": -74.4703
-        },
-        "descripcion": "Campamento realizado en Rupanco durante el año 2010.",
-        "imagenes": []
-      },
-      {
-        "id": 59,
-        "año": "2011",
-        "lugar": "Ranco",
-        "coordenadas": {
-          "lat": -26.9343,
-          "lng": -66.729
-        },
-        "descripcion": "Campamento realizado en Ranco durante el año 2011.",
-        "imagenes": []
-      },
-      {
-        "id": 60,
-        "año": "2012",
-        "lugar": "Malalcahuello",
-        "coordenadas": {
-          "lat": -23.9389,
-          "lng": -66.4084
-        },
-        "descripcion": "Campamento realizado en Malalcahuello durante el año 2012.",
-        "imagenes": []
-      },
-      {
-        "id": 61,
-        "año": "2013",
-        "lugar": "Atacalco",
-        "coordenadas": {
-          "lat": -36.9856,
-          "lng": -68.8277
-        },
-        "descripcion": "Campamento realizado en Atacalco durante el año 2013.",
-        "imagenes": []
-      },
-      {
-        "id": 62,
-        "año": "2014",
-        "lugar": "Río Pedregoso",
-        "coordenadas": {
-          "lat": -36.6262,
-          "lng": -66.9099
-        },
-        "descripcion": "Campamento realizado en Río Pedregoso durante el año 2014.",
-        "imagenes": []
-      },
-      {
-        "id": 63,
-        "año": "2015",
-        "lugar": "Rupanco",
-        "coordenadas": {
-          "lat": -44.3944,
-          "lng": -74.7469
-        },
-        "descripcion": "Campamento realizado en Rupanco durante el año 2015.",
-        "imagenes": []
-      },
-      {
-        "id": 64,
-        "año": "2016",
-        "lugar": "Cholguán",
-        "coordenadas": {
-          "lat": -33.5011,
-          "lng": -66.9616
-        },
-        "descripcion": "Campamento realizado en Cholguán durante el año 2016.",
-        "imagenes": []
-      },
-      {
-        "id": 65,
-        "año": "2017",
-        "lugar": "Las Compuertas Chiloé",
-        "coordenadas": {
-          "lat": -42.0465,
-          "lng": -70.6827
-        },
-        "descripcion": "Campamento realizado en Las Compuertas Chiloé durante el año 2017.",
-        "imagenes": []
-      },
-      {
-        "id": 66,
-        "año": "2018",
-        "lugar": "Lago Icalma",
-        "coordenadas": {
-          "lat": -29.665,
-          "lng": -67.2893
-        },
-        "descripcion": "Campamento realizado en Lago Icalma durante el año 2018.",
-        "imagenes": []
-      },
-      {
-        "id": 67,
-        "año": "2019",
-        "lugar": "Lago Maihue",
-        "coordenadas": {
-          "lat": -36.6704,
-          "lng": -69.2872
-        },
-        "descripcion": "Campamento realizado en Lago Maihue durante el año 2019.",
-        "imagenes": []
-      },
-      {
-        "id": 68,
-        "año": "2020",
-        "lugar": "Lircay",
-        "coordenadas": {
-          "lat": -53.1093,
-          "lng": -74.5535
-        },
-        "descripcion": "Campamento realizado en Lircay durante el año 2020.",
-        "imagenes": []
-      },
-      {
-        "id": 69,
-        "año": "2023",
-        "lugar": "Cachapoal",
-        "coordenadas": {
-          "lat": -46.9258,
-          "lng": -71.556
-        },
-        "descripcion": "Campamento realizado en Cachapoal durante el año 2023.",
-        "imagenes": []
-      },
-      {
-        "id": 70,
-        "año": "2024",
-        "lugar": "Quillayes de Tomé",
-        "coordenadas": {
-          "lat": -22.091,
-          "lng": -67.823
-        },
-        "descripcion": "Campamento realizado en Quillayes de Tomé durante el año 2024.",
-        "imagenes": []
-      },
-      {
-        "id": 71,
-        "año": "2025",
-        "lugar": "Chonchi",
-        "coordenadas": {
-          "lat": -30.7097,
-          "lng": -66.9654
-        },
-        "descripcion": "Campamento realizado en Chonchi durante el año 2025.",
-        "imagenes": []
-      }
-    ]
-  }
+  "campamentos": [
+    {
+      "id": 1,
+      "año": "1953",
+      "lugar": "San Fabián",
+      "coordenadas": {
+        "lat": -27.2869,
+        "lng": -66.18
+      },
+      "descripcion": "Campamento realizado en San Fabián durante el año 1953.",
+      "imagenes": []
+    },
+    {
+      "id": 2,
+      "año": "1954",
+      "lugar": "Cucha-Cucha",
+      "coordenadas": {
+        "lat": -52.1447,
+        "lng": -67.8848
+      },
+      "descripcion": "Campamento realizado en Cucha-Cucha durante el año 1954.",
+      "imagenes": []
+    },
+    {
+      "id": 3,
+      "año": "1955",
+      "lugar": "Villarica",
+      "coordenadas": {
+        "lat": -42.5073,
+        "lng": -67.4468
+      },
+      "descripcion": "Campamento realizado en Villarica durante el año 1955.",
+      "imagenes": []
+    },
+    {
+      "id": 4,
+      "año": "1956",
+      "lugar": "Ñuble",
+      "coordenadas": {
+        "lat": -32.9779,
+        "lng": -69.3175
+      },
+      "descripcion": "Campamento realizado en Ñuble durante el año 1956.",
+      "imagenes": []
+    },
+    {
+      "id": 5,
+      "año": "1957",
+      "lugar": "Puerto Montt",
+      "coordenadas": {
+        "lat": -52.1992,
+        "lng": -69.3398
+      },
+      "descripcion": "Campamento realizado en Puerto Montt durante el año 1957.",
+      "imagenes": []
+    },
+    {
+      "id": 6,
+      "año": "1958",
+      "lugar": "Loncoche",
+      "coordenadas": {
+        "lat": -31.9709,
+        "lng": -69.2264
+      },
+      "descripcion": "Campamento realizado en Loncoche durante el año 1958.",
+      "imagenes": []
+    },
+    {
+      "id": 7,
+      "año": "1959",
+      "lugar": "Lago Ranco",
+      "coordenadas": {
+        "lat": -28.5972,
+        "lng": -69.7608
+      },
+      "descripcion": "Campamento realizado en Lago Ranco durante el año 1959.",
+      "imagenes": []
+    },
+    {
+      "id": 8,
+      "año": "1960",
+      "lugar": "Puerto Fonck",
+      "coordenadas": {
+        "lat": -42.9288,
+        "lng": -68.7808
+      },
+      "descripcion": "Campamento realizado en Puerto Fonck durante el año 1960.",
+      "imagenes": []
+    },
+    {
+      "id": 9,
+      "año": "1961",
+      "lugar": "Ayacara",
+      "coordenadas": {
+        "lat": -19.0609,
+        "lng": -67.313
+      },
+      "descripcion": "Campamento realizado en Ayacara durante el año 1961.",
+      "imagenes": []
+    },
+    {
+      "id": 10,
+      "año": "1962",
+      "lugar": "Panguipulli",
+      "coordenadas": {
+        "lat": -37.8074,
+        "lng": -67.9954
+      },
+      "descripcion": "Campamento realizado en Panguipulli durante el año 1962.",
+      "imagenes": []
+    },
+    {
+      "id": 11,
+      "año": "1963",
+      "lugar": "Puyehue",
+      "coordenadas": {
+        "lat": -21.8508,
+        "lng": -67.0386
+      },
+      "descripcion": "Campamento realizado en Puyehue durante el año 1963.",
+      "imagenes": []
+    },
+    {
+      "id": 12,
+      "año": "1964",
+      "lugar": "Perquilauquén",
+      "coordenadas": {
+        "lat": -18.9519,
+        "lng": -67.757
+      },
+      "descripcion": "Campamento realizado en Perquilauquén durante el año 1964.",
+      "imagenes": []
+    },
+    {
+      "id": 13,
+      "año": "1965",
+      "lugar": "Ñuble",
+      "coordenadas": {
+        "lat": -45.8272,
+        "lng": -74.9681
+      },
+      "descripcion": "Campamento realizado en Ñuble durante el año 1965.",
+      "imagenes": []
+    },
+    {
+      "id": 14,
+      "año": "1966",
+      "lugar": "Villarica",
+      "coordenadas": {
+        "lat": -52.0082,
+        "lng": -68.2134
+      },
+      "descripcion": "Campamento realizado en Villarica durante el año 1966.",
+      "imagenes": []
+    },
+    {
+      "id": 15,
+      "año": "1967",
+      "lugar": "Lanalhue",
+      "coordenadas": {
+        "lat": -29.5506,
+        "lng": -69.8872
+      },
+      "descripcion": "Campamento realizado en Lanalhue durante el año 1967.",
+      "imagenes": []
+    },
+    {
+      "id": 16,
+      "año": "1968",
+      "lugar": "Calafquén",
+      "coordenadas": {
+        "lat": -28.577,
+        "lng": -70.8367
+      },
+      "descripcion": "Campamento realizado en Calafquén durante el año 1968.",
+      "imagenes": []
+    },
+    {
+      "id": 17,
+      "año": "1969",
+      "lugar": "Puerto Fonck",
+      "coordenadas": {
+        "lat": -52.7018,
+        "lng": -70.1763
+      },
+      "descripcion": "Campamento realizado en Puerto Fonck durante el año 1969.",
+      "imagenes": []
+    },
+    {
+      "id": 18,
+      "año": "1970",
+      "lugar": "Rupanco",
+      "coordenadas": {
+        "lat": -22.8153,
+        "lng": -70.9941
+      },
+      "descripcion": "Campamento realizado en Rupanco durante el año 1970.",
+      "imagenes": []
+    },
+    {
+      "id": 19,
+      "año": "1971",
+      "lugar": "Calafquén",
+      "coordenadas": {
+        "lat": -28.4999,
+        "lng": -70.8435
+      },
+      "descripcion": "Campamento realizado en Calafquén durante el año 1971.",
+      "imagenes": []
+    },
+    {
+      "id": 20,
+      "año": "1972",
+      "lugar": "Loncoche",
+      "coordenadas": {
+        "lat": -23.7429,
+        "lng": -69.5187
+      },
+      "descripcion": "Campamento realizado en Loncoche durante el año 1972.",
+      "imagenes": []
+    },
+    {
+      "id": 21,
+      "año": "1973",
+      "lugar": "Los Ángeles",
+      "coordenadas": {
+        "lat": -40.4408,
+        "lng": -73.1389
+      },
+      "descripcion": "Campamento realizado en Los Ángeles durante el año 1973.",
+      "imagenes": []
+    },
+    {
+      "id": 22,
+      "año": "1974",
+      "lugar": "Chillán",
+      "coordenadas": {
+        "lat": -36.583101,
+        "lng": -72.128147
+      },
+      "descripcion": "Campamento realizado en Chillán durante el año 1974.",
+      "imagenes": []
+    },
+    {
+      "id": 23,
+      "año": "1975",
+      "lugar": "Calafquén",
+      "coordenadas": {
+        "lat": -20.7611,
+        "lng": -68.5696
+      },
+      "descripcion": "Campamento realizado en Calafquén durante el año 1975.",
+      "imagenes": []
+    },
+    {
+      "id": 24,
+      "año": "1976",
+      "lugar": "Villarica",
+      "coordenadas": {
+        "lat": -49.6843,
+        "lng": -69.2659
+      },
+      "descripcion": "Campamento realizado en Villarica durante el año 1976.",
+      "imagenes": []
+    },
+    {
+      "id": 25,
+      "año": "1977",
+      "lugar": "Chillán",
+      "coordenadas": {
+        "lat": -30.8785,
+        "lng": -74.2644
+      },
+      "descripcion": "Campamento realizado en Chillán durante el año 1977.",
+      "imagenes": []
+    },
+    {
+      "id": 26,
+      "año": "1978",
+      "lugar": "Villarica",
+      "coordenadas": {
+        "lat": -23.4672,
+        "lng": -67.2406
+      },
+      "descripcion": "Campamento realizado en Villarica durante el año 1978.",
+      "imagenes": []
+    },
+    {
+      "id": 27,
+      "año": "1979",
+      "lugar": "Calafquén",
+      "coordenadas": {
+        "lat": -46.8145,
+        "lng": -72.137
+      },
+      "descripcion": "Campamento realizado en Calafquén durante el año 1979.",
+      "imagenes": []
+    },
+    {
+      "id": 28,
+      "año": "1980",
+      "lugar": "Calafquén",
+      "coordenadas": {
+        "lat": -54.7171,
+        "lng": -74.8008
+      },
+      "descripcion": "Campamento realizado en Calafquén durante el año 1980.",
+      "imagenes": []
+    },
+    {
+      "id": 29,
+      "año": "1981",
+      "lugar": "Villarica",
+      "coordenadas": {
+        "lat": -50.5308,
+        "lng": -69.6222
+      },
+      "descripcion": "Campamento realizado en Villarica durante el año 1981.",
+      "imagenes": []
+    },
+    {
+      "id": 30,
+      "año": "1982",
+      "lugar": "Puerto Fonck",
+      "coordenadas": {
+        "lat": -20.0029,
+        "lng": -74.0864
+      },
+      "descripcion": "Campamento realizado en Puerto Fonck durante el año 1982.",
+      "imagenes": []
+    },
+    {
+      "id": 31,
+      "año": "1983",
+      "lugar": "Puerto Fonck",
+      "coordenadas": {
+        "lat": -52.6254,
+        "lng": -67.5133
+      },
+      "descripcion": "Campamento realizado en Puerto Fonck durante el año 1983.",
+      "imagenes": []
+    },
+    {
+      "id": 32,
+      "año": "1984",
+      "lugar": "Río Muco Temuco",
+      "coordenadas": {
+        "lat": -47.7363,
+        "lng": -72.7573
+      },
+      "descripcion": "Campamento realizado en Río Muco Temuco durante el año 1984.",
+      "imagenes": []
+    },
+    {
+      "id": 33,
+      "año": "1985",
+      "lugar": "Panguipulli",
+      "coordenadas": {
+        "lat": -49.4742,
+        "lng": -66.3403
+      },
+      "descripcion": "Campamento realizado en Panguipulli durante el año 1985.",
+      "imagenes": []
+    },
+    {
+      "id": 34,
+      "año": "1985",
+      "lugar": "Salto de la Princesa",
+      "coordenadas": {
+        "lat": -34.0386,
+        "lng": -71.4772
+      },
+      "descripcion": "Campamento realizado en Salto de la Princesa durante el año 1985.",
+      "imagenes": []
+    },
+    {
+      "id": 35,
+      "año": "1986",
+      "lugar": "Ayacara Puerto Buill",
+      "coordenadas": {
+        "lat": -54.6402,
+        "lng": -73.8372
+      },
+      "descripcion": "Campamento realizado en Ayacara Puerto Buill durante el año 1986.",
+      "imagenes": []
+    },
+    {
+      "id": 36,
+      "año": "1987",
+      "lugar": "Calafquén",
+      "coordenadas": {
+        "lat": -50.1972,
+        "lng": -70.5402
+      },
+      "descripcion": "Campamento realizado en Calafquén durante el año 1987.",
+      "imagenes": []
+    },
+    {
+      "id": 37,
+      "año": "1988",
+      "lugar": "Ensenada",
+      "coordenadas": {
+        "lat": -44.2009,
+        "lng": -69.1028
+      },
+      "descripcion": "Campamento realizado en Ensenada durante el año 1988.",
+      "imagenes": []
+    },
+    {
+      "id": 38,
+      "año": "1989",
+      "lugar": "Cascadas",
+      "coordenadas": {
+        "lat": -33.1275,
+        "lng": -66.3532
+      },
+      "descripcion": "Campamento realizado en Cascadas durante el año 1989.",
+      "imagenes": []
+    },
+    {
+      "id": 39,
+      "año": "1990",
+      "lugar": "Lago 7 Islas Calbuco",
+      "coordenadas": {
+        "lat": -26.7113,
+        "lng": -71.2252
+      },
+      "descripcion": "Campamento realizado en Lago 7 Islas Calbuco durante el año 1990.",
+      "imagenes": []
+    },
+    {
+      "id": 40,
+      "año": "1991",
+      "lugar": "Lago Maihue",
+      "coordenadas": {
+        "lat": -31.079,
+        "lng": -68.6084
+      },
+      "descripcion": "Campamento realizado en Lago Maihue durante el año 1991.",
+      "imagenes": []
+    },
+    {
+      "id": 41,
+      "año": "1992",
+      "lugar": "Salto de la Princesa",
+      "coordenadas": {
+        "lat": -46.6272,
+        "lng": -70.0216
+      },
+      "descripcion": "Campamento realizado en Salto de la Princesa durante el año 1992.",
+      "imagenes": []
+    },
+    {
+      "id": 42,
+      "año": "1993",
+      "lugar": "Lechagua Chiloé",
+      "coordenadas": {
+        "lat": -27.5197,
+        "lng": -73.2202
+      },
+      "descripcion": "Campamento realizado en Lechagua Chiloé durante el año 1993.",
+      "imagenes": []
+    },
+    {
+      "id": 43,
+      "año": "1994",
+      "lugar": "Mantilhue Lago Puyehue",
+      "coordenadas": {
+        "lat": -39.5937,
+        "lng": -66.7872
+      },
+      "descripcion": "Campamento realizado en Mantilhue Lago Puyehue durante el año 1994.",
+      "imagenes": []
+    },
+    {
+      "id": 44,
+      "año": "1995",
+      "lugar": "Lago Rupanco",
+      "coordenadas": {
+        "lat": -41.5511,
+        "lng": -74.824
+      },
+      "descripcion": "Campamento realizado en Lago Rupanco durante el año 1995.",
+      "imagenes": []
+    },
+    {
+      "id": 45,
+      "año": "1997",
+      "lugar": "Mantilhue Lago Puyehue",
+      "coordenadas": {
+        "lat": -33.4289,
+        "lng": -71.9504
+      },
+      "descripcion": "Campamento realizado en Mantilhue Lago Puyehue durante el año 1997.",
+      "imagenes": []
+    },
+    {
+      "id": 46,
+      "año": "1998",
+      "lugar": "Anticura Parque Nacional Puyehue",
+      "coordenadas": {
+        "lat": -27.8574,
+        "lng": -74.809
+      },
+      "descripcion": "Campamento realizado en Anticura Parque Nacional Puyehue durante el año 1998.",
+      "imagenes": []
+    },
+    {
+      "id": 47,
+      "año": "1999",
+      "lugar": "San Francisco de Mostazal",
+      "coordenadas": {
+        "lat": -32.2989,
+        "lng": -74.1517
+      },
+      "descripcion": "Campamento realizado en San Francisco de Mostazal durante el año 1999.",
+      "imagenes": []
+    },
+    {
+      "id": 48,
+      "año": "1999",
+      "lugar": "Calfuco Niebla Valdivia",
+      "coordenadas": {
+        "lat": -53.0346,
+        "lng": -70.7819
+      },
+      "descripcion": "Campamento realizado en Calfuco Niebla Valdivia durante el año 1999.",
+      "imagenes": []
+    },
+    {
+      "id": 49,
+      "año": "2000",
+      "lugar": "Isla Huar",
+      "coordenadas": {
+        "lat": -38.5056,
+        "lng": -68.9487
+      },
+      "descripcion": "Campamento realizado en Isla Huar durante el año 2000.",
+      "imagenes": []
+    },
+    {
+      "id": 50,
+      "año": "2001",
+      "lugar": "Río Carihueico",
+      "coordenadas": {
+        "lat": -46.8086,
+        "lng": -74.2278
+      },
+      "descripcion": "Campamento realizado en Río Carihueico durante el año 2001.",
+      "imagenes": []
+    },
+    {
+      "id": 51,
+      "año": "2002",
+      "lugar": "Lago Riñihue",
+      "coordenadas": {
+        "lat": -48.4085,
+        "lng": -68.2343
+      },
+      "descripcion": "Campamento realizado en Lago Riñihue durante el año 2002.",
+      "imagenes": []
+    },
+    {
+      "id": 52,
+      "año": "2004",
+      "lugar": "Vilches",
+      "coordenadas": {
+        "lat": -49.7758,
+        "lng": -71.7841
+      },
+      "descripcion": "Campamento realizado en Vilches durante el año 2004.",
+      "imagenes": []
+    },
+    {
+      "id": 53,
+      "año": "2005",
+      "lugar": "Enco Panguipulli",
+      "coordenadas": {
+        "lat": -44.3567,
+        "lng": -67.8329
+      },
+      "descripcion": "Campamento realizado en Enco Panguipulli durante el año 2005.",
+      "imagenes": []
+    },
+    {
+      "id": 54,
+      "año": "2006",
+      "lugar": "Rupanco",
+      "coordenadas": {
+        "lat": -35.7489,
+        "lng": -70.7037
+      },
+      "descripcion": "Campamento realizado en Rupanco durante el año 2006.",
+      "imagenes": []
+    },
+    {
+      "id": 55,
+      "año": "2007",
+      "lugar": "Puelo",
+      "coordenadas": {
+        "lat": -31.4101,
+        "lng": -70.0152
+      },
+      "descripcion": "Campamento realizado en Puelo durante el año 2007.",
+      "imagenes": []
+    },
+    {
+      "id": 56,
+      "año": "2008",
+      "lugar": "Bullileo",
+      "coordenadas": {
+        "lat": -27.6098,
+        "lng": -72.4012
+      },
+      "descripcion": "Campamento realizado en Bullileo durante el año 2008.",
+      "imagenes": []
+    },
+    {
+      "id": 57,
+      "año": "2009",
+      "lugar": "Las Compuertas Chiloé",
+      "coordenadas": {
+        "lat": -44.6032,
+        "lng": -66.9088
+      },
+      "descripcion": "Campamento realizado en Las Compuertas Chiloé durante el año 2009.",
+      "imagenes": []
+    },
+    {
+      "id": 58,
+      "año": "2010",
+      "lugar": "Rupanco",
+      "coordenadas": {
+        "lat": -27.1558,
+        "lng": -74.4703
+      },
+      "descripcion": "Campamento realizado en Rupanco durante el año 2010.",
+      "imagenes": []
+    },
+    {
+      "id": 59,
+      "año": "2011",
+      "lugar": "Ranco",
+      "coordenadas": {
+        "lat": -26.9343,
+        "lng": -66.729
+      },
+      "descripcion": "Campamento realizado en Ranco durante el año 2011.",
+      "imagenes": []
+    },
+    {
+      "id": 60,
+      "año": "2012",
+      "lugar": "Malalcahuello",
+      "coordenadas": {
+        "lat": -23.9389,
+        "lng": -66.4084
+      },
+      "descripcion": "Campamento realizado en Malalcahuello durante el año 2012.",
+      "imagenes": []
+    },
+    {
+      "id": 61,
+      "año": "2013",
+      "lugar": "Atacalco",
+      "coordenadas": {
+        "lat": -36.9856,
+        "lng": -68.8277
+      },
+      "descripcion": "Campamento realizado en Atacalco durante el año 2013.",
+      "imagenes": []
+    },
+    {
+      "id": 62,
+      "año": "2014",
+      "lugar": "Río Pedregoso",
+      "coordenadas": {
+        "lat": -36.6262,
+        "lng": -66.9099
+      },
+      "descripcion": "Campamento realizado en Río Pedregoso durante el año 2014.",
+      "imagenes": []
+    },
+    {
+      "id": 63,
+      "año": "2015",
+      "lugar": "Rupanco",
+      "coordenadas": {
+        "lat": -40.886067,
+        "lng": -72.475356
+      },
+      "descripcion": "Campamento realizado en Rupanco durante el año 2015.",
+      "imagenes": []
+    },
+    {
+      "id": 64,
+      "año": "2016",
+      "lugar": "Cholguán",
+      "coordenadas": {
+        "lat": -33.5011,
+        "lng": -66.9616
+      },
+      "descripcion": "Campamento realizado en Cholguán durante el año 2016.",
+      "imagenes": []
+    },
+    {
+      "id": 65,
+      "año": "2017",
+      "lugar": "Las Compuertas Chiloé",
+      "coordenadas": {
+        "lat": -42.0465,
+        "lng": -70.6827
+      },
+      "descripcion": "Campamento realizado en Las Compuertas Chiloé durante el año 2017.",
+      "imagenes": []
+    },
+    {
+      "id": 66,
+      "año": "2018",
+      "lugar": "Lago Icalma",
+      "coordenadas": {
+        "lat": -38.785832,
+        "lng": -71.296319
+      },
+      "descripcion": "Campamento realizado en Lago Icalma durante el año 2018.",
+      "imagenes": []
+    },
+    {
+      "id": 67,
+      "año": "2019",
+      "lugar": "Lago Maihue",
+      "coordenadas": {
+        "lat": -36.6704,
+        "lng": -69.2872
+      },
+      "descripcion": "Campamento realizado en Lago Maihue durante el año 2019.",
+      "imagenes": []
+    },
+    {
+      "id": 68,
+      "año": "2020",
+      "lugar": "Lircay",
+      "coordenadas": {
+        "lat": -53.1093,
+        "lng": -74.5535
+      },
+      "descripcion": "Campamento realizado en Lircay durante el año 2020.",
+      "imagenes": []
+    },
+    {
+      "id": 69,
+      "año": "2023",
+      "lugar": "Cachapoal",
+      "coordenadas": {
+        "lat": -46.9258,
+        "lng": -71.556
+      },
+      "descripcion": "Campamento realizado en Cachapoal durante el año 2023.",
+      "imagenes": []
+    },
+    {
+      "id": 70,
+      "año": "2024",
+      "lugar": "Quillayes de Tomé",
+      "coordenadas": {
+        "lat": -22.091,
+        "lng": -67.823
+      },
+      "descripcion": "Campamento realizado en Quillayes de Tomé durante el año 2024.",
+      "imagenes": []
+    },
+    {
+      "id": 71,
+      "año": "2025",
+      "lugar": "Chonchi",
+      "coordenadas": {
+        "lat": -42.620736,
+        "lng": -73.786791
+      },
+      "descripcion": "Campamento realizado en Chonchi durante el año 2025.",
+      "imagenes": []
+    }
+  ]
+}
