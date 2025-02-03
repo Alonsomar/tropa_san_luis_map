@@ -104,8 +104,8 @@
       "año": "1962",
       "lugar": "Panguipulli",
       "coordenadas": {
-        "lat": -37.8074,
-        "lng": -67.9954
+        "lat": -39.658129,
+        "lng": -72.317840
       },
       "descripcion": "Campamento realizado en Panguipulli durante el año 1962.",
       "imagenes": []
@@ -192,8 +192,8 @@
       "año": "1970",
       "lugar": "Rupanco",
       "coordenadas": {
-        "lat": -22.8153,
-        "lng": -70.9941
+        "lat": -40.886428,
+        "lng": -72.340708
       },
       "descripcion": "Campamento realizado en Rupanco durante el año 1970.",
       "imagenes": []
@@ -357,8 +357,8 @@
       "año": "1985",
       "lugar": "Panguipulli",
       "coordenadas": {
-        "lat": -49.4742,
-        "lng": -66.3403
+        "lat": -39.658129,
+        "lng": -72.317840
       },
       "descripcion": "Campamento realizado en Panguipulli durante el año 1985.",
       "imagenes": []
@@ -456,8 +456,8 @@
       "año": "1993",
       "lugar": "Lechagua Chiloé",
       "coordenadas": {
-        "lat": -27.5197,
-        "lng": -73.2202
+        "lat": -42.282220,
+        "lng": -73.806636
       },
       "descripcion": "Campamento realizado en Lechagua Chiloé durante el año 1993.",
       "imagenes": []
@@ -477,9 +477,9 @@
       "id": 44,
       "año": "1995",
       "lugar": "Lago Rupanco",
-      "coordenadas": {
-        "lat": -41.5511,
-        "lng": -74.824
+      "coordenadas": { 
+        "lat": -40.886428,
+        "lng": -72.340708
       },
       "descripcion": "Campamento realizado en Lago Rupanco durante el año 1995.",
       "imagenes": []
@@ -577,8 +577,8 @@
       "año": "2005",
       "lugar": "Enco Panguipulli",
       "coordenadas": {
-        "lat": -44.3567,
-        "lng": -67.8329
+        "lat": -39.658129,
+        "lng": -72.317840
       },
       "descripcion": "Campamento realizado en Enco Panguipulli durante el año 2005.",
       "imagenes": []
@@ -588,8 +588,8 @@
       "año": "2006",
       "lugar": "Rupanco",
       "coordenadas": {
-        "lat": -35.7489,
-        "lng": -70.7037
+        "lat": -40.886428,
+        "lng": -72.340708
       },
       "descripcion": "Campamento realizado en Rupanco durante el año 2006.",
       "imagenes": []
@@ -621,8 +621,8 @@
       "año": "2009",
       "lugar": "Las Compuertas Chiloé",
       "coordenadas": {
-        "lat": -44.6032,
-        "lng": -66.9088
+        "lat": -42.282220,
+        "lng": -73.806636
       },
       "descripcion": "Campamento realizado en Las Compuertas Chiloé durante el año 2009.",
       "imagenes": []
@@ -632,8 +632,8 @@
       "año": "2010",
       "lugar": "Rupanco",
       "coordenadas": {
-        "lat": -27.1558,
-        "lng": -74.4703
+        "lat": -40.886428,
+        "lng": -72.340708
       },
       "descripcion": "Campamento realizado en Rupanco durante el año 2010.",
       "imagenes": []
@@ -675,9 +675,9 @@
       "id": 62,
       "año": "2014",
       "lugar": "Río Pedregoso",
-      "coordenadas": {
-        "lat": -36.6262,
-        "lng": -66.9099
+      "coordenadas": { 
+        "lat": -39.167811,
+        "lng": -72.134372
       },
       "descripcion": "Campamento realizado en Río Pedregoso durante el año 2014.",
       "imagenes": []
@@ -709,8 +709,8 @@
       "año": "2017",
       "lugar": "Las Compuertas Chiloé",
       "coordenadas": {
-        "lat": -42.0465,
-        "lng": -70.6827
+        "lat": -42.282220,
+        "lng": -73.806636
       },
       "descripcion": "Campamento realizado en Las Compuertas Chiloé durante el año 2017.",
       "imagenes": []

@@ -9,11 +9,13 @@
   let geoData;
   let zoom; // Variable para el zoom de D3
 
-  // Reactividad: cuando cambie el store, se actualiza la variable local
+  // Reactividad: actualiza "camps" y "selectedCamp" cuando cambia el store
   $: camps = $campStore.camps;
+  // Usamos la sintaxis reactiva para tener la selección actualizada
+  $: selectedCamp = $campStore.selectedCamp;
 
   async function drawMap() {
-    // Usamos el tamaño real del contenedor si está disponible
+    // Usamos el tamaño real del contenedor o valores por defecto
     const width = mapContainer.clientWidth || 800;
     const height = mapContainer.clientHeight || 800;
 
@@ -23,14 +25,14 @@
       .center([-60, -35]);
     const path = d3.geoPath().projection(projection);
 
-    // Crear el SVG y un grupo para contener todos los elementos (regiones y marcadores)
+    // Crear el SVG y el grupo principal
     const svg = d3.select(mapContainer)
       .append('svg')
       .attr('width', width)
       .attr('height', height);
     const g = svg.append('g');
 
-    // Crear el tooltip (se creará antes de los marcadores para asegurar su disponibilidad)
+    // Crear el tooltip para mostrar información de cada campamento
     const tooltip = d3.select(mapContainer)
       .append('div')
       .attr('class', 'tooltip')
@@ -43,10 +45,10 @@
       .style('font-size', '0.8rem')
       .style('opacity', 0);
 
-    // Cargar los datos geográficos (regiones de Chile)
+    // Usar los datos geográficos (regiones de Chile)
     geoData = regionesData;
 
-    // Dibujar las regiones dentro de un grupo específico
+    // Dibujar las regiones con un estilo pastel y trazos suaves
     const regionsGroup = g.append('g')
       .attr('class', 'regions')
       .selectAll('path')
@@ -54,11 +56,11 @@
       .enter()
       .append('path')
       .attr('d', path)
-      .attr('fill', '#cccccc')
-      .attr('stroke', '#333333')
-      .attr('stroke-width', 0.5);
+      .attr('fill', '#eef6f7')
+      .attr('stroke', '#c0d6df')
+      .attr('stroke-width', 1);
 
-    // Crear el grupo para los marcadores de campamentos
+    // Grupo para los marcadores (círculos)
     const markersGroup = g.append('g')
       .attr('class', 'markers');
 
@@ -68,38 +70,56 @@
       .join('circle')
       .attr('cx', d => projection([d.lng, d.lat])[0])
       .attr('cy', d => projection([d.lng, d.lat])[1])
-      .attr('r', 0) // Inicia con radio 0 para efecto de aparición
-      .attr('fill', 'red')
-      .attr('stroke', 'black')
+      .attr('r', 0) // Comienza con radio 0 para efecto de aparición
+      .attr('fill', '#f13232')
+      .attr('stroke', '#fff')
       .attr('stroke-width', 1)
       .style('cursor', 'pointer')
       .on('mouseover', function(event, d) {
-        d3.select(this)
-          .transition().duration(200)
-          .attr('r', 8);
-        tooltip.transition().duration(200).style('opacity', 0.9);
-        tooltip.html(`<strong>${d.lugar}</strong><br/>Año: ${d.año}`)
-          .style('left', (event.pageX + 10) + 'px')
-          .style('top', (event.pageY - 28) + 'px');
-        // Resalta la región que contiene el campamento
-        highlightRegion(d, regionsGroup);
+         d3.select(this)
+           .transition().duration(200)
+           .attr('r', 8);
+         tooltip.transition().duration(200).style('opacity', 0.9);
+         tooltip.html(`<strong>${d.lugar}</strong><br/>Año: ${d.año}`)
+           .style('left', (event.pageX + 10) + 'px')
+           .style('top', (event.pageY - 28) + 'px');
       })
       .on('mouseout', function(event, d) {
-        d3.select(this)
-          .transition().duration(200)
-          .attr('r', 5);
-        tooltip.transition().duration(200).style('opacity', 0);
-        removeRegionHighlight(regionsGroup);
+         // Si este marcador NO es el seleccionado, vuelve a su radio normal
+         if (!selectedCamp || selectedCamp.id !== d.id) {
+           d3.select(this)
+             .transition().duration(200)
+             .attr('r', 5);
+         }
+         tooltip.transition().duration(200).style('opacity', 0);
       })
       .on('click', function(event, d) {
-        // Al hacer click, centra y acerca el mapa hacia el campamento
-        const coords = projection([d.lng, d.lat]);
-        zoomToLocation(svg, g, coords, width, height);
-        campStore.selectCamp(d);
+         // Si se hace click en el mismo marcador ya seleccionado, se deselecciona
+         if (selectedCamp && selectedCamp.id === d.id) {
+           campStore.reset(); // deselecciona
+           markersGroup.selectAll('circle')
+             .transition().duration(200)
+             .attr('r', 5)
+             .classed('selected', false);
+         } else {
+           const coords = projection([d.lng, d.lat]);
+           zoomToLocation(svg, g, coords, width, height);
+           campStore.selectCamp(d);
+           // Marcar visualmente este marcador como seleccionado
+           markersGroup.selectAll('circle')
+             .classed('selected', false)
+             .transition().duration(200)
+             .attr('r', 5); // reinicia los no seleccionados
+           d3.select(this)
+             .classed('selected', true)
+             .transition().duration(200)
+             .attr('r', 9);
+         }
       });
 
-    // Transición de aparición de los marcadores
-    markers.transition().duration(1000).attr('r', 5);
+    // Transición de aparición de los marcadores (radio de 0 a 5)
+    markers.transition().duration(1000)
+      .attr('r', 5);
 
     // Configurar zoom y pan
     zoom = d3.zoom()
@@ -109,43 +129,49 @@
       });
     svg.call(zoom);
 
-    // Agregar un botón de “Reset Zoom” en la esquina superior derecha
-    d3.select(mapContainer)
-      .append('button')
-      .attr('class', 'reset-button')
-      .text('Reset Zoom')
+    // Panel de controles de navegación (opcional, si ya lo habíamos implementado)
+    const controls = d3.select(mapContainer)
+      .append('div')
+      .attr('class', 'map-controls')
       .style('position', 'absolute')
-      .style('top', '10px')
+      .style('bottom', '10px')
       .style('right', '10px')
-      .style('padding', '5px 10px')
+      .style('display', 'flex')
+      .style('flex-direction', 'column')
+      .style('gap', '4px');
+
+    controls.append('button')
+      .attr('class', 'zoom-in')
+      .text('+')
       .on('click', () => {
-         svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity);
+         svg.transition().duration(750)
+            .call(zoom.scaleBy, 1.2);
       });
-  }
-
-  // Función que resalta la región donde se encuentra el campamento
-  function highlightRegion(camp, regionsGroup) {
-    regionsGroup.each(function(feature) {
-      if (d3.geoContains(feature, [camp.lng, camp.lat])) {
-        d3.select(this)
-          .transition().duration(200)
-          .attr('fill', '#ffcc00');
-      }
-    });
-  }
-
-  // Función para quitar el resaltado de las regiones
-  function removeRegionHighlight(regionsGroup) {
-    regionsGroup.transition().duration(200)
-      .attr('fill', '#cccccc');
+    controls.append('button')
+      .attr('class', 'zoom-out')
+      .text('–')
+      .on('click', () => {
+         svg.transition().duration(750)
+            .call(zoom.scaleBy, 0.8);
+      });
+    controls.append('button')
+      .attr('class', 'reset-button')
+      .text('Reiniciar zoom')
+      .on('click', () => {
+         svg.transition().duration(750)
+           .call(zoom.transform, d3.zoomIdentity);
+      });
   }
 
   // Función para centrar y hacer zoom en la ubicación seleccionada
   function zoomToLocation(svg, g, coords, width, height) {
-    const scale = 4; // Valor de zoom objetivo (se puede ajustar)
-    const translate = [width / 2 - scale * coords[0], height / 2 - scale * coords[1]];
+    const scale = 4; // Zoom deseado
+    const translate = [
+      width / 2 - scale * coords[0],
+      height / 2 - scale * coords[1]
+    ];
     svg.transition().duration(750)
-      .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+       .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
   }
 
   onMount(() => {
@@ -154,20 +180,27 @@
 </script>
 
 <style>
-  /* Aseguramos que el contenedor del mapa tenga position: relative para los elementos absolutos (tooltip y botón) */
   :host {
     position: relative;
   }
-  
+
   :global(.tooltip) {
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
-  
-  :global(.reset-button) {
-    background-color: #fff;
-    border: 1px solid #ccc;
+
+  :global(.map-controls button) {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
     border-radius: 4px;
     cursor: pointer;
+    padding: 4px 8px;
+    font-size: 1rem;
+  }
+
+  /* Estilo para el marcador seleccionado */
+  :global(.selected) {
+    stroke: #fff;
+    stroke-width: 3;
   }
 </style>
 
