@@ -3,7 +3,11 @@ import campamentosData from '../../data/campamentos.json';
 
 const initialData = {
   selectedCamp: null,
-  camps: campamentosData.campamentos
+  camps: campamentosData.campamentos.map(camp => ({
+    ...camp,
+    lat: camp.coordenadas.lat,
+    lng: camp.coordenadas.lng
+  }))
 };
 
 function createCampStore() {
@@ -16,4 +20,4 @@ function createCampStore() {
   };
 }
 
-export const campStore = createCampStore(); 
+export const campStore = createCampStore();
