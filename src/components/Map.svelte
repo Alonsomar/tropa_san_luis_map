@@ -201,7 +201,7 @@
   }
 
   :global(.map-controls button) {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(237, 242, 239, 0.7); /* Basado en el background claro */
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -211,8 +211,8 @@
 
   /* Estilo para el marcador seleccionado: ahora con borde sutil negro */
   :global(.selected) {
-    stroke: #555;
-    stroke-width: 1.2;
+    stroke: #212738; /* Usamos el color acento oscuro para un borde destacado */
+    stroke-width: 2;
   }
 </style>
 

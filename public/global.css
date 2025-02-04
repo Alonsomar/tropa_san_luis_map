@@ -1,25 +1,32 @@
 :root {
-  --primary-color: #f13232;
-  --primary-light: #ff4747;
-  --primary-dark: #d42020;
-  --accent-color: #2c3e50;
-  --background-color: #ffffff;
-  --text-color: #2c3e50;
+  /* Paleta de Colores Propuesta */
+  --primary-color: #027ba8;    /* Color principal (azul) */
+  --secondary-color: #f13232;  /* Color secundario (rojo) */
+  --accent-color: #212738;     /* Color de acento (oscuro) */
+  --highlight-color: #d1d646;  /* Color para resaltar elementos (amarillo verdoso) */
+  --background-color: #edf2ef; /* Color de fondo (muy claro) */
+
+  /* Variantes del color principal */
+  --primary-light: #3b9ec7;    /* Una variante más clara del color principal */
+  --primary-dark: #01577b;     /* Una variante más oscura */
+
+  /* Variables que ya tenías, las dejamos o ajustamos según convenga */
   --gray-100: #f8f9fa;
   --gray-200: #e9ecef;
   --gray-300: #dee2e6;
   --gray-400: #ced4da;
   --gray-500: #adb5bd;
-  --timeline-gradient: linear-gradient(180deg, 
-    var(--primary-color) 0%,
-    var(--primary-dark) 100%
-  );
-  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+
+  /* Ejemplo: Gradiente para la línea de tiempo */
+  --timeline-gradient: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
                  0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
-                      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                        0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --title-font: 'Barriecito', cursive;
 }
+
 
 * {
   margin: 0;
