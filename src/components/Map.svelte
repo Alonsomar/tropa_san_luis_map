@@ -9,28 +9,29 @@
   let geoData;
   let zoom; // Variable para el zoom de D3
 
+  // Variables globales para el SVG, grupo principal, grupo de marcadores y la proyección
+  let svg, g, markersGroup, projection;
+
   // Reactividad: actualiza "camps" y "selectedCamp" cuando cambia el store
   $: camps = $campStore.camps;
-  // Usamos la sintaxis reactiva para tener la selección actualizada
   $: selectedCamp = $campStore.selectedCamp;
 
   async function drawMap() {
-    // Usamos el tamaño real del contenedor o valores por defecto
     const width = mapContainer.clientWidth || 800;
     const height = mapContainer.clientHeight || 800;
 
-    // Definir proyección y generador de caminos
-    const projection = d3.geoMercator()
+    // Definir la proyección y el generador de caminos (guardamos la proyección globalmente)
+    projection = d3.geoMercator()
       .scale(800)
       .center([-60, -35]);
     const path = d3.geoPath().projection(projection);
 
-    // Crear el SVG y el grupo principal
-    const svg = d3.select(mapContainer)
+    // Crear el SVG y el grupo principal (guardamos en variables globales)
+    svg = d3.select(mapContainer)
       .append('svg')
       .attr('width', width)
       .attr('height', height);
-    const g = svg.append('g');
+    g = svg.append('g');
 
     // Crear el tooltip para mostrar información de cada campamento
     const tooltip = d3.select(mapContainer)
@@ -45,10 +46,10 @@
       .style('font-size', '0.8rem')
       .style('opacity', 0);
 
-    // Usar los datos geográficos (regiones de Chile)
+    // Cargar los datos geográficos (regiones de Chile)
     geoData = regionesData;
 
-    // Dibujar las regiones con un estilo pastel y trazos suaves
+    // Dibujar las regiones con estilo pastel y trazos suaves
     const regionsGroup = g.append('g')
       .attr('class', 'regions')
       .selectAll('path')
@@ -60,17 +61,16 @@
       .attr('stroke', '#c0d6df')
       .attr('stroke-width', 1);
 
-    // Grupo para los marcadores (círculos)
-    const markersGroup = g.append('g')
+    // Crear el grupo para los marcadores y guardarlo en variable global
+    markersGroup = g.append('g')
       .attr('class', 'markers');
 
-    // Dibujar cada campamento con un círculo
     const markers = markersGroup.selectAll('circle')
       .data(camps, d => d.id)
       .join('circle')
       .attr('cx', d => projection([d.lng, d.lat])[0])
       .attr('cy', d => projection([d.lng, d.lat])[1])
-      .attr('r', 0) // Comienza con radio 0 para efecto de aparición
+      .attr('r', 0) // Efecto de aparición
       .attr('fill', '#f13232')
       .attr('stroke', '#fff')
       .attr('stroke-width', 1)
@@ -94,9 +94,8 @@
          tooltip.transition().duration(200).style('opacity', 0);
       })
       .on('click', function(event, d) {
-         // Si se hace click en el mismo marcador ya seleccionado, se deselecciona
          if (selectedCamp && selectedCamp.id === d.id) {
-           campStore.reset(); // deselecciona
+           campStore.reset(); // Deselecciona
            markersGroup.selectAll('circle')
              .transition().duration(200)
              .attr('r', 5)
@@ -105,11 +104,11 @@
            const coords = projection([d.lng, d.lat]);
            zoomToLocation(svg, g, coords, width, height);
            campStore.selectCamp(d);
-           // Marcar visualmente este marcador como seleccionado
+           // Actualiza la visualización: desmarca todos y marca el seleccionado
            markersGroup.selectAll('circle')
              .classed('selected', false)
              .transition().duration(200)
-             .attr('r', 5); // reinicia los no seleccionados
+             .attr('r', 5);
            d3.select(this)
              .classed('selected', true)
              .transition().duration(200)
@@ -117,7 +116,7 @@
          }
       });
 
-    // Transición de aparición de los marcadores (radio de 0 a 5)
+    // Transición de aparición de los marcadores (de radio 0 a 5)
     markers.transition().duration(1000)
       .attr('r', 5);
 
@@ -129,7 +128,7 @@
       });
     svg.call(zoom);
 
-    // Panel de controles de navegación (opcional, si ya lo habíamos implementado)
+    // Panel de controles de navegación
     const controls = d3.select(mapContainer)
       .append('div')
       .attr('class', 'map-controls')
@@ -165,13 +164,26 @@
 
   // Función para centrar y hacer zoom en la ubicación seleccionada
   function zoomToLocation(svg, g, coords, width, height) {
-    const scale = 4; // Zoom deseado
+    const scale = 4;
     const translate = [
       width / 2 - scale * coords[0],
       height / 2 - scale * coords[1]
     ];
     svg.transition().duration(750)
        .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+  }
+
+  // Bloque reactivo: cada vez que selectedCamp cambia, se hace zoom hacia él y se actualizan estilos
+  $: if (selectedCamp && svg && g) {
+    const width = mapContainer.clientWidth || 800;
+    const height = mapContainer.clientHeight || 800;
+    const coords = projection([selectedCamp.lng, selectedCamp.lat]);
+    zoomToLocation(svg, g, coords, width, height);
+
+    markersGroup.selectAll('circle')
+      .classed('selected', d => selectedCamp && d.id === selectedCamp.id)
+      .transition().duration(200)
+      .attr('r', d => (selectedCamp && d.id === selectedCamp.id) ? 9 : 5);
   }
 
   onMount(() => {
@@ -197,12 +209,11 @@
     font-size: 1rem;
   }
 
-  /* Estilo para el marcador seleccionado */
+  /* Estilo para el marcador seleccionado: ahora con borde sutil negro */
   :global(.selected) {
-    stroke: #fff;
-    stroke-width: 3;
+    stroke: #555;
+    stroke-width: 1.2;
   }
 </style>
 
-<!-- El contenedor del mapa ocupa el 100% del espacio disponible -->
 <div bind:this={mapContainer} style="width: 100%; height: 100%;"></div>
