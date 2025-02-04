@@ -144,7 +144,6 @@
 
 <div class="timeline-container" bind:this={timelineContainer} style="height: {height}; width: {width};">
   <div class="timeline-wrapper" style="min-height: {getTimelineHeight()};">
-    <div class="timeline-background"></div>
     <div class="timeline-line-container">
       <!-- Reemplazamos la línea original por un SVG para las 3 líneas -->
       <svg class="timeline-lines"></svg>
@@ -211,11 +210,13 @@
 <style>
   .timeline-container {
     position: relative;
+    z-index: 1000;
     overflow-y: auto;
     padding: 2rem;
-    background: var(--gray-100);
     border-radius: 12px;
     height: 100%;
+    backdrop-filter: blur(3px);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   .timeline-wrapper {
@@ -223,16 +224,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 6rem 0;
-  }
-
-  .timeline-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, var(--gray-100) 0%, transparent 70%);
-    pointer-events: none;
   }
 
   .timeline-line-container {

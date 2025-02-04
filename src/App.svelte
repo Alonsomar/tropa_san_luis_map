@@ -56,10 +56,13 @@
   }
 
   header {
+    position: relative;
+    z-index: 1000; /* Por encima del mapa */
     padding: 4rem 2rem;
     text-align: center;
-    background: var(--background-color); /* Usamos el fondo claro de la paleta */
     border-bottom: 1px solid var(--gray-200);
+    backdrop-filter: blur(3px);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   header h1 {
@@ -106,6 +109,7 @@
 
   .timeline-section {
     position: relative;
+    z-index: 1000;
   }
 
   .fixed-section {
@@ -115,9 +119,8 @@
   }
 
   .map-container {
-    background: white;
+    background: none;
     border-radius: 12px;
-    box-shadow: var(--card-shadow);
     height: 100%;
     position: relative;
     overflow: hidden;
@@ -147,9 +150,6 @@
     }
   }
 
-  header h1 {
-    font-family: var(--title-font);
-  }
   h1 {
     color: var(--primary-color);
     margin-bottom: 1.5rem;

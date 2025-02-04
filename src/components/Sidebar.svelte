@@ -31,12 +31,13 @@
 <style>
   .sidebar {
     width: 120px;
-    background: white;
+    background: none;
     border-right: 1px solid var(--gray-200);
     position: sticky;
     top: 0;
     height: 100vh;
     padding: 2rem 0;
+    z-index: 1000;
   }
 
   nav {
