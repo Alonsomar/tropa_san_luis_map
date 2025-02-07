@@ -58,9 +58,9 @@
       .enter()
       .append('path')
       .attr('d', path)
-      .attr('fill', '#eef6f7')
-      .attr('stroke', '#c0d6df')
-      .attr('stroke-width', 1);
+      .attr('fill', '#f4f5d1')
+      .attr('stroke', '#01577b')
+      .attr('stroke-width', .4);
 
     // Crear el grupo para los marcadores y guardarlo globalmente
     markersGroup = g.append('g')
