@@ -2,11 +2,10 @@
   "name": "campamentos-tropa-san-luis",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
+    "build": "rollup -c rollup.config.mjs",
+    "dev": "concurrently --kill-others \"rollup -c rollup.config.mjs -w\" \"node server.js\"",
+    "start": "node server.js",
     "deploy": "npm run build && netlify deploy --prod"
   },
   "devDependencies": {
@@ -14,6 +13,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.3.1",
     "@rollup/plugin-terser": "^0.4.4",
+    "concurrently": "^8.2.2",
     "rollup": "^3.29.5",
     "rollup-plugin-css-only": "^4.5.2",
     "rollup-plugin-livereload": "^2.0.5",
@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "d3": "^7.0.0",
+    "express": "^4.21.2",
+    "fs-extra": "^11.3.0",
     "leaflet": "^1.9.4",
     "scrollama": "^3.2.0",
     "sirv-cli": "^2.0.0"
