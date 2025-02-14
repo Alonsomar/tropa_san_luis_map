@@ -66,7 +66,7 @@
 
   // Optimización de eventos de hover usando event delegation y bubbling
   const handleMouseOver = (e) => {
-    const isClickable = e.target.closest('a, button, .clickable, [data-cursor-hover], [role="button"], input[type="button"], input[type="submit"], .nav-link, .btn');
+    const isClickable = e.target.closest('a, button, .clickable, [data-cursor-hover], [role="button"], input[type="button"], input[type="submit"], .nav-link, .btn, circle.camp-marker');
     if (isClickable && !isHovering) {
       isHovering = true;
       pointer?.classList.add('hover');
@@ -74,8 +74,8 @@
   };
 
   const handleMouseOut = (e) => {
-    const isClickable = e.target.closest('a, button, .clickable, [data-cursor-hover], [role="button"], input[type="button"], input[type="submit"], .nav-link, .btn');
-    const relatedIsClickable = e.relatedTarget?.closest('a, button, .clickable, [data-cursor-hover], [role="button"], input[type="button"], input[type="submit"], .nav-link, .btn');
+    const isClickable = e.target.closest('a, button, .clickable, [data-cursor-hover], [role="button"], input[type="button"], input[type="submit"], .nav-link, .btn, circle.camp-marker');
+    const relatedIsClickable = e.relatedTarget?.closest('a, button, .clickable, [data-cursor-hover], [role="button"], input[type="button"], input[type="submit"], .nav-link, .btn, circle.camp-marker');
     
     if (isClickable && !relatedIsClickable && isHovering) {
       isHovering = false;
@@ -265,7 +265,8 @@
   :global(input[type="button"]),
   :global(input[type="submit"]),
   :global(.nav-link),
-  :global(.btn) {
+  :global(.btn),
+  :global(circle.camp-marker) {
     cursor: none !important;
   }
 

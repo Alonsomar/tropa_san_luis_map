@@ -75,7 +75,7 @@
       .attr('fill', '#f13232')
       .attr('stroke', '#fff')
       .attr('stroke-width', 1)
-      .style('cursor', 'pointer')
+      .attr('class', 'clickable camp-marker')
       .on('mouseover', function(event, d) {
          d3.select(this)
            .transition().duration(200)
@@ -226,6 +226,11 @@
   :global(.selected) {
     stroke: #212738;
     stroke-width: 2;
+  }
+
+  /* Asegurarnos que los marcadores no tengan cursor por defecto */
+  :global(.camp-marker) {
+    cursor: none !important;
   }
 
   /* Contenedor del mapa: ocupará toda la pantalla y se posiciona como fondo */
