@@ -5,6 +5,7 @@
   import CampInfo from './components/CampInfo.svelte';
   import Sidebar from './components/Sidebar.svelte';
   import { campStore } from './stores/campData';
+  import CompassCursor from './components/CompassCursor.svelte';
 
   let currentDecade = null;
 
@@ -17,6 +18,7 @@
 </script>
 
 <main>
+  <CompassCursor />
   <header>
     <h1>Campamentos de la Tropa San Luis</h1>
     <p class="subtitle">
