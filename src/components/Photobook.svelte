@@ -111,7 +111,7 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="photobook-container" transition:slide>
+<div class="photobook-container" transition:slide={{ duration: 200 }}>
   {#if loading}
     <div class="loading" role="status" aria-live="polite">Cargando imágenes...</div>
   {:else if loadedImages.length === 0}
@@ -131,16 +131,18 @@
           style="--rotation: {rotations[i]}deg"
           aria-label="Ver foto {i + 1} de {loadedImages.length}"
         >
-          <img 
-            src={img} 
-            alt="Foto {i + 1} del campamento" 
-            class="miniatura"
-            loading="lazy"
-            on:error={() => {
-              loadedImages = loadedImages.filter(image => image !== img);
-              rotations = rotations.filter((_, index) => index !== i);
-            }}
-          />
+          <div class="miniatura-wrapper">
+            <img 
+              src={img} 
+              alt="Foto {i + 1} del campamento" 
+              class="miniatura"
+              loading="lazy"
+              on:error={() => {
+                loadedImages = loadedImages.filter(image => image !== img);
+                rotations = rotations.filter((_, index) => index !== i);
+              }}
+            />
+          </div>
         </button>
       {/each}
     </div>
@@ -155,7 +157,7 @@
     aria-label="Visor de imágenes"
     bind:this={modalElement}
     tabindex="-1"
-    transition:fade
+    transition:fade={{ duration: 200 }}
     on:click|self={closeModal}
     on:keydown={handleKeydown}
     on:touchstart={handleTouchStart}
@@ -205,16 +207,16 @@
 
 <style>
   .photobook-container {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
   }
 
   .photobook-preview {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+    padding: 0.5rem;
+    margin: -1rem;
     padding: 1rem;
   }
 
@@ -225,28 +227,54 @@
     cursor: pointer;
     transition: transform 0.3s ease;
     position: relative;
-    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .miniatura-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    transform-style: preserve-3d;
   }
 
   .miniatura-button:focus {
-    outline: 3px solid var(--color-primary, #4a9eff);
-    outline-offset: 2px;
+    outline: none;
+  }
+
+  .miniatura-button:focus .miniatura-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid var(--color-primary, #4a9eff);
+    border-radius: 4px;
+    pointer-events: none;
   }
 
   .miniatura {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 120px;
+    height: 100%;
     object-fit: cover;
     border-radius: 4px;
     transform: rotate(var(--rotation));
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backface-visibility: hidden;
+    transform-origin: center center;
+    border: 2px solid white;
   }
 
   .miniatura-button:hover .miniatura,
   .miniatura-button:focus .miniatura {
-    transform: rotate(0) scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: rotate(0) scale(1.08);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 2;
   }
 
   .modal {
@@ -255,11 +283,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.97);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 10000;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .modal-content {
@@ -278,6 +308,7 @@
     border-radius: 4px;
     opacity: 0;
     animation: fadeIn 0.3s ease forwards;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
   }
 
   .nav-button {
@@ -287,31 +318,38 @@
     background: rgba(255, 255, 255, 0.1);
     border: none;
     color: white;
-    padding: 1rem;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
     font-size: 1.5rem;
     border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .nav-button:hover,
   .nav-button:focus {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
     transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
   }
 
   .prev {
-    left: 1rem;
+    left: 2rem;
   }
 
   .next {
-    right: 1rem;
+    right: 2rem;
   }
 
   .close-button {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 2rem;
+    right: 2rem;
     background: rgba(255, 255, 255, 0.1);
     border: none;
     color: white;
@@ -323,37 +361,46 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .close-button:hover,
   .close-button:focus {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
   }
 
   .image-counter {
     position: absolute;
-    bottom: -2rem;
+    bottom: -3rem;
     left: 50%;
     transform: translateX(-50%);
     color: white;
     background: rgba(0, 0, 0, 0.7);
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
     font-size: 0.9rem;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   .keyboard-instructions {
     position: absolute;
-    bottom: 1rem;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.8rem;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   .loading, .no-images {
@@ -364,18 +411,28 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
   }
 
   @media (max-width: 768px) {
     .photobook-preview {
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 0.35rem;
     }
 
     .nav-button {
-      padding: 0.5rem;
-      font-size: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.2rem;
+    }
+
+    .prev {
+      left: 1rem;
+    }
+
+    .next {
+      right: 1rem;
     }
 
     .keyboard-instructions {
@@ -385,7 +442,7 @@
 
   @media (hover: none) {
     .nav-button {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
     }
   }
 </style>

@@ -29,7 +29,7 @@ app.get('/api/campamento-imagenes/:id', async (req, res) => {
 
     // Construir URLs completas
     const images = imageFiles.map(file => 
-      `/data/fotos_stl/id_${campId}/${file}`
+      `data/fotos_stl/id_${campId}/${file}`
     );
 
     res.json({ images });

@@ -134,11 +134,12 @@
     right: 1rem;
     width: 300px;
     max-height: calc(100% - 2rem);
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     box-shadow: var(--card-shadow-hover);
     overflow: auto;
     animation: slideIn 0.3s ease-out;
+    backdrop-filter: blur(3px);
   }
 
   @keyframes slideIn {
