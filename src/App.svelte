@@ -6,6 +6,7 @@
   import Sidebar from './components/Sidebar.svelte';
   import { campStore } from './stores/campData';
   import CompassCursor from './components/CompassCursor.svelte';
+  import ImageModal from './components/ImageModal.svelte';
 
   let currentDecade = null;
 
@@ -19,6 +20,7 @@
 
 <main>
   <CompassCursor />
+  <ImageModal />
   <header>
     <h1>Campamentos de la Tropa San Luis</h1>
     <p class="subtitle">
@@ -140,6 +142,8 @@
     overflow: auto;
     animation: slideIn 0.3s ease-out;
     backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   @keyframes slideIn {
