@@ -16,6 +16,14 @@
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+  // Add Font Awesome CSS
+  onMount(() => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    document.head.appendChild(link);
+  });
 </script>
 
 <main>
@@ -34,9 +42,15 @@
       <div class="logo-social-section">
         <img src="../../data/fotos_stl/logo-nobackground.png" alt="Logo" class="logo" />
         <div class="social-icons">
-          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/ScoutTropaSanLuis" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://open.spotify.com/intl-es/artist/03fChLztihH4q9kkEzUw0n?si=VoYeiCQbSNitL9S6E9PchQ" target="_blank" aria-label="Spotify">
+            <i class="fab fa-spotify"></i>
+          </a>
+          <a href="https://www.instagram.com/tropasanluis_stl/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -73,43 +87,110 @@
 
   header {
     position: relative;
-    z-index: 1000; /* Por encima del mapa */
-    padding: 4rem 2rem;
+    top: 0;
+    z-index: 1000;
+    padding: 1.5rem 2rem;
     text-align: left;
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(3px);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  header:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .title-section {
+    flex: 1;
   }
 
   header h1 {
+    font-size: 2.5rem;
     font-family: var(--title-font);
-    color: var(--primary-color); /* Color principal: azul */
-    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    margin: 0;
     font-weight: 800;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     text-align: left;
+    transition: transform 0.3s ease;
   }
 
   header h1::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -8px;
     left: 0;
-    transform: translateX(0);
-    width: 100px;
-    height: 4px;
+    width: 60px;
+    height: 3px;
     background: var(--primary-color);
     border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+
+  header:hover h1::after {
+    width: 100px;
   }
 
   .subtitle {
-    color: var(--accent-color); /* Usamos el acento oscuro para el texto secundario */
-    max-width: 800px;
-    margin: 2rem 0 0;
+    color: var(--accent-color);
+    margin: 1rem 0 0;
     line-height: 1.6;
-    opacity: 0.8;
-    text-align: left;
+    opacity: 0.9;
+    font-size: 1rem;
+    max-width: 600px;
+  }
+
+  .logo-social-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .logo {
+    height: 80px;
+    transition: transform 0.3s ease;
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-icons a {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .social-icons a:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .content-wrapper {
@@ -160,34 +241,6 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo-social-section {
-    display: flex;
-    align-items: center;
-  }
-
-  .logo {
-    height: 100px;
-    margin-right: 1rem;
-  }
-
-  .social-icons a {
-    margin: 0 0.5rem;
-    color: var(--primary-color);
-    font-size: 1.5rem;
-  }
-
-  .social-icons a {
-    margin: 0 0.5rem;
-  }
-
-
   @keyframes slideIn {
     from {
       transform: translateX(100%);
@@ -220,13 +273,39 @@
   }
 
   @media (max-width: 768px) {
-    h1 {
-      font-size: 2.5rem;
+    header {
+      padding: 1rem;
+    }
+
+    .header-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    header h1::after {
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .subtitle {
-      font-size: 1rem;
-      padding: 0 1rem;
+      text-align: center;
+      margin: 1rem auto 0;
+      padding: 0;
+    }
+
+    .logo-social-section {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .logo {
+      height: 60px;
     }
   }
 </style> 
