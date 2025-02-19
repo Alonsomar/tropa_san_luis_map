@@ -177,7 +177,7 @@
 
   function zoomToLocation(svg, g, coords, width, height) {
     const scale = 4;
-    const targetX = width * 0.75;  // Queremos que el punto quede en el 75% del ancho
+    const targetX = width * 0.6;  // Queremos que el punto quede en el 75% del ancho
     const targetY = height / 2;      // Centrado verticalmente
     const translate = [
       targetX - scale * coords[0],

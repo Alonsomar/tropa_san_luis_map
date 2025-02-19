@@ -22,12 +22,24 @@
   <CompassCursor />
   <ImageModal />
   <header>
-    <h1>Campamentos de la Tropa San Luis</h1>
-    <p class="subtitle">
-      Explora la historia de nuestros campamentos desde 1953 hasta la actualidad. 
-      Cada punto en esta línea del tiempo representa una aventura, un momento de aprendizaje 
-      y una historia que contar.
-    </p>
+    <div class="header-content">
+      <div class="title-section">
+        <h1>Campamentos de la Tropa San Luis</h1>
+        <p class="subtitle">
+          Explora la historia de nuestros campamentos desde 1953 hasta la actualidad. 
+          Cada punto en esta línea del tiempo representa una aventura, un momento de aprendizaje 
+          y una historia que contar.
+        </p>
+      </div>
+      <div class="logo-social-section">
+        <img src="../../data/fotos_stl/logo-nobackground.png" alt="Logo" class="logo" />
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <div class="content-wrapper">
@@ -63,7 +75,7 @@
     position: relative;
     z-index: 1000; /* Por encima del mapa */
     padding: 4rem 2rem;
-    text-align: center;
+    text-align: left;
     border-bottom: 1px solid var(--gray-200);
     backdrop-filter: blur(3px);
     background: rgba(255, 255, 255, 0.1);
@@ -76,14 +88,15 @@
     font-weight: 800;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
+    text-align: left;
   }
 
   header h1::after {
     content: '';
     position: absolute;
     bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: translateX(0);
     width: 100px;
     height: 4px;
     background: var(--primary-color);
@@ -93,9 +106,10 @@
   .subtitle {
     color: var(--accent-color); /* Usamos el acento oscuro para el texto secundario */
     max-width: 800px;
-    margin: 2rem auto 0;
+    margin: 2rem 0 0;
     line-height: 1.6;
     opacity: 0.8;
+    text-align: left;
   }
 
   .content-wrapper {
@@ -146,6 +160,34 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-social-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    height: 100px;
+    margin-right: 1rem;
+  }
+
+  .social-icons a {
+    margin: 0 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+  }
+
+  .social-icons a {
+    margin: 0 0.5rem;
+  }
+
+
   @keyframes slideIn {
     from {
       transform: translateX(100%);
@@ -155,34 +197,6 @@
       transform: translateX(0);
       opacity: 1;
     }
-  }
-
-  h1 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    font-weight: 800;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    position: relative;
-  }
-
-  h1::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: var(--primary-color);
-    border-radius: 2px;
-  }
-
-  .subtitle {
-    color: var(--accent-color);
-    max-width: 800px;
-    margin: 2rem auto 0;
-    line-height: 1.6;
-    opacity: 0.8;
   }
 
   @media (max-width: 1200px) {

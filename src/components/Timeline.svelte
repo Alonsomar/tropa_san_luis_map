@@ -5,7 +5,7 @@
 
   // Props
   export let height = '100%';
-  export let width = '100%';
+  export let width = '80%';
 
   let timelineContainer;
   let selectedYear = null;
