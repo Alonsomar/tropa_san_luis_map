@@ -37,3 +37,4 @@ Thumbs.db
 *.iml
 
 data/fotos_stl/*
+codebase_summary.json
