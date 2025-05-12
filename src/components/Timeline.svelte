@@ -244,7 +244,7 @@
     transform: translateX(-50%) translateY(-50%);
     width: 100%;
     height: 80px;
-    cursor: pointer;
+    cursor: none;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     filter: blur(10px);

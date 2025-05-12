@@ -92,9 +92,8 @@
     padding: 1.5rem 2rem;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(3px);
-    background: rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.08);
+    transition: background 0.3s ease;
   }
 
   header:hover {
@@ -225,20 +224,30 @@
     overflow: hidden;
   }
 
+  .timeline-container {
+    position: relative;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 2rem;
+    border-radius: 12px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    will-change: transform; /* Optimización para scroll */
+  }
+
   .info-overlay {
     position: absolute;
     top: 1rem;
     right: 1rem;
     width: 300px;
     max-height: calc(100% - 2rem);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 8px;
     box-shadow: var(--card-shadow-hover);
     overflow: auto;
     animation: slideIn 0.3s ease-out;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    will-change: transform; /* Optimización para la animación */
   }
 
   @keyframes slideIn {

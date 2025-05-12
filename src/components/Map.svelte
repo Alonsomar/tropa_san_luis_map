@@ -177,14 +177,23 @@
 
   function zoomToLocation(svg, g, coords, width, height) {
     const scale = 4;
-    const targetX = width * 0.6;  // Queremos que el punto quede en el 75% del ancho
-    const targetY = height / 2;      // Centrado verticalmente
+    const targetX = width * 0.6;
+    const targetY = height / 2;
     const translate = [
       targetX - scale * coords[0],
       targetY - scale * coords[1]
     ];
-    svg.transition().duration(750)
-      .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+
+    // Cancelar cualquier transición anterior
+    svg.interrupt();
+    
+    // Usar RAF para suavizar la transición
+    requestAnimationFrame(() => {
+      svg.transition()
+        .duration(500) // Reducido de 750ms a 500ms
+        .ease(d3.easeCubicOut) // Cambio de easing para mejor rendimiento
+        .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+    });
   }
 
   // Bloque reactivo para centrar el zoom al cambiar la selección
@@ -192,11 +201,20 @@
     const width = mapContainer.clientWidth || 800;
     const height = mapContainer.clientHeight || 800;
     const coords = projection([selectedCamp.lng, selectedCamp.lat]);
-    zoomToLocation(svg, g, coords, width, height);
-    markersGroup.selectAll('circle')
-      .classed('selected', d => selectedCamp && d.id === selectedCamp.id)
-      .transition().duration(200)
-      .attr('r', d => (selectedCamp && d.id === selectedCamp.id) ? 9 : 5);
+    
+    // Cancelar transiciones anteriores de los marcadores
+    markersGroup.selectAll('circle').interrupt();
+    
+    // Actualizar marcadores de manera más eficiente
+    requestAnimationFrame(() => {
+      markersGroup.selectAll('circle')
+        .classed('selected', d => selectedCamp && d.id === selectedCamp.id)
+        .transition()
+        .duration(200)
+        .attr('r', d => (selectedCamp && d.id === selectedCamp.id) ? 9 : 5);
+      
+      zoomToLocation(svg, g, coords, width, height);
+    });
   }
 
   onMount(() => {
